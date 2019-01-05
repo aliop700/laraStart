@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="app">
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -165,36 +165,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <router-link to="/dashboard" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt blue"></i>
               <p>
                 Dashboard
               </p>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-user"></i>
+            <router-link to="/profile" class="nav-link">
+              <i class="nav-icon fa fa-user orange"></i>
               <p>
                 Profile
               </p>
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-cog"></i>
+              <i class="nav-icon fa fa-cog green"></i>
               <p>
                 Settings
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-            <i class="fas fa-power-off"></i>
+            <a href="#" class="nav-link" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class="fas fa-power-off red"></i>
               <p>
                 Logout
               </p>
             </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
           </li>
         </ul>
       </nav>
@@ -205,7 +209,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-   
+  <router-view></router-view>
+
   </div>
   <!-- /.content-wrapper -->
 
