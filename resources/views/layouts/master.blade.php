@@ -15,7 +15,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="hold-transition sidebar-mini">
+  {{csrf_field()}}
 <div class="wrapper" id="app">
+
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
@@ -177,6 +179,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="nav-icon fa fa-user orange"></i>
               <p>
                 Profile
+              </p>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/users" class="nav-link">
+            <i class="fas fa-users"></i>
+              <p>
+                Users
               </p>
             </router-link>
           </li>
